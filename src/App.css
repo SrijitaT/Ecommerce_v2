@@ -41,8 +41,10 @@ a:hover{
 .prod-desc,.card-body #button{
   font-size: 12.5px;
 }
-
-.profile-menu a{
+.btn-cart{
+  background-color:rgba(250, 144, 15, 0.1);
+}
+.profile-menu .custom_navlink{
   color:white;
   padding-top:0.5rem;
   padding-left:0.5rem;

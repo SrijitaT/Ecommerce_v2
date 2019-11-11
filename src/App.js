@@ -7,6 +7,7 @@ import Catalogue from "./components/products/Catalogue";
 import Description from "./components/products/Description";
 import Cart from "./components/cart/index";
 import Checkout from "./components/cart/Checkout";
+import ChoosePayment from "./components/cart/ChoosePayment";
 import Nomatch from "./components/Nomatch";
 import {
   BrowserRouter as Router,
@@ -24,9 +25,11 @@ function App() {
           <Route exact path="/desc/:id" component={Description} />
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/checkout" component={Checkout} />
+          <Route exact path="/payment" component={ChoosePayment} />
           <Route path="*" component={Nomatch} />
         </Switch>
       </Container>
+      <br />
     </Router>
   );
 }

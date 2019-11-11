@@ -7,22 +7,21 @@ import "../App.css";
 
 class Header extends Component {
     render() {
+        const { first_name } = this.props.user;
         return (
             <Navbar bg="primary" variant="dark" expand="lg">
                 <Link to="/" className="logo">Ecommerce</Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto profile-menu">
-                        <Link to="/orders">My orders</Link>
-                        <NavDropdown title="My Profile" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                        <Link to="/orders" className="custom_navlink">My orders</Link>
+                        <NavDropdown title={"Welcome " + (first_name ? first_name : "Guest")} id="basic-nav-dropdown">
+                            <NavDropdown.Item href="#action/3.1">Edit Profile</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                            <NavDropdown.Item href="/logout">Logout</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
-                    <Link to="/cart" className="btn-success btn">
+                    <Link to="/cart" className="btn btn-cart">
                         Cart <Badge variant="light">{this.props.noofitems}</Badge>
                         <span className="sr-only">Cart</span>
                     </Link>
@@ -33,7 +32,8 @@ class Header extends Component {
 }
 
 const mapStateToProps = state => ({
-    noofitems: state.items.length
+    noofitems: state.items.length,
+    user: state.user
 });
 
 export default connect(

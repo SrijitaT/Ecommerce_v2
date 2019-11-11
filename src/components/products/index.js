@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Card, Button, Col } from "react-bootstrap";
 import { addToCart } from "../../redux/actions/index";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 class Product extends Component {
     constructor(props) {
@@ -30,7 +31,7 @@ class Product extends Component {
                         </Card.Text>
                         <Card.Text>Price : Rs {item.price}</Card.Text>
                         <Button variant="success" onClick={() => this.props.addToCart(this.props.item)}>Add to cart</Button>{"  "}
-                        <Button variant="warning" href={`/desc/${index + 1}`}>View Details</Button>
+                        <Link className="btn btn-warning" to={`/desc/${index + 1}`}>View Details</Link>
                     </Card.Body>
                 </Card>
             </Col>

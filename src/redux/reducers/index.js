@@ -1,4 +1,5 @@
 import { ADD_TO_CART, QTY_UPDATE, REMOVE_FROM_CART } from "../actions/actionTypes";
+
 function updateObjectInArray(array, action) {
     return array.map((item, index) => {
         if (item.id !== action.id) {
@@ -13,7 +14,8 @@ function updateObjectInArray(array, action) {
     })
 }
 const initialState = {
-    items: []
+    items: [],
+    user: { id: 101, first_name: "Srijita", last_name: "Thakur", address: "22, Xyz Road, Kolkata - 71" }
 };
 
 export default function (state = initialState, action) {
